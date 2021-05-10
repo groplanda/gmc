@@ -1,6 +1,5 @@
 # Composer ignores
 /vendor
-/tests
 composer.phar
 composer.lock
 
