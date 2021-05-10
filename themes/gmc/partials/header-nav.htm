@@ -1,0 +1,31 @@
+description = "Header-nav"
+==
+<nav class="header__nav">
+  <div class="header__mobile-toggle" data-js="toggle-menu">
+    <svg class="header__mobile-ico" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2V0H18V2H0ZM0 7H18V5H0V7ZM0 12H18V10H0V12Z" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="header__nav-row header__nav-row_left">
+    <div class="header__nav-item">
+      <a href="#!" class="header__nav-link">Главная</a>
+    </div>
+    <div class="header__nav-item">
+      <a href="#!" class="header__nav-link">О нас</a>
+    </div>
+    <div class="header__nav-item">
+      <a href="#!" class="header__nav-link">Услуги</a>
+    </div>
+  </div>
+  <a href="/" class="header__logo">
+    <img src="{{ 'assets/images/logo.png'|theme }}" alt="" class="header__logo-img" />
+  </a>
+  <div class="header__nav-row">
+    <div class="header__nav-item">
+      <a href="#!" class="header__nav-link">Наши проекты</a>
+    </div>
+    <div class="header__nav-item">
+      <a href="#!" class="header__nav-link">Контакты</a>
+    </div>
+  </div>
+</nav>
