@@ -3,22 +3,12 @@ description = "Counter"
 <div class="count">
   <div class="container">
     <div class="count__row">
+      {% for item in this.theme.count_list %}
       <div class="count__item">
-        <span class="count__item-num" data-js="counter">14</span>
-        <div class="count__item-text">Лет на <br>рынке</div>
+        <span class="count__item-num" data-js="counter">{{ item.num }}</span>
+        <div class="count__item-text">{{ item.title }}</div>
       </div>
-      <div class="count__item">
-        <span class="count__item-num" data-js="counter">368</span>
-        <div class="count__item-text">выполненных <br>проектов</div>
-      </div>
-      <div class="count__item">
-        <span class="count__item-num" data-js="counter">12</span>
-        <div class="count__item-text">месяцев <br>гарантии</div>
-      </div>
-      <div class="count__item">
-        <span class="count__item-num" data-js="counter">35</span>
-        <div class="count__item-text">человек в <br>штате</div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>

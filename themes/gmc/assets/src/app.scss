@@ -150,7 +150,7 @@ a {
     text-transform: uppercase;
     padding: 0 20px;
 
-    &:hover, &:focus {
+    &:hover, &:focus, &_active {
       color: #e74c3c;
     }
 
@@ -271,7 +271,8 @@ a {
 }
 
 .intro {
-  background: url(/themes/gmc/assets/images/intro.jpg) no-repeat center bottom;
+  background-repeat: no-repeat;
+  background-position: center bottom;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
@@ -374,7 +375,7 @@ a {
 
   &__phone {
     color: #FFF;
-    font-size: 60px;
+    font-size: 55px;
     font-weight: 600;
     line-height: 60px;
     display: block;
@@ -390,15 +391,15 @@ a {
     }
 
     @media(max-width: 1199px) {
-      font-size: 55px;
+      font-size: 50px;
     }
 
     @media(max-width: 767px) {
-      font-size: 45px;
+      font-size: 40px;
     }
 
     @media(max-width: 575px) {
-      font-size: 35px;
+      font-size: 30px;
     }
   }
 
@@ -409,13 +410,13 @@ a {
 
   &__send-text {
     color: #FFF;
-    font-size: 16px;
+    font-size: 15px;
     @media(max-width: 1199px) {
-      font-size: 15px;
+      font-size: 14px;
     }
     @media(max-width: 575px) {
       max-width: calc(100% - 30px);
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 
@@ -672,6 +673,18 @@ a {
 
 .why {
   padding: 50px 0;
+
+  &__item-first {
+    order: 0;
+  }
+
+  &__item-last {
+    order: 2;
+  }
+
+  &__item-center {
+    order: 1;
+  }
 
   &__title {
     color: #464855;
@@ -1393,134 +1406,6 @@ a {
   }
 }
 
-.additional {
-  overflow-x: hidden;
-  padding: 50px 0;
-  $root: &;
-
-  &__title {
-    font-size: 50px;
-    font-weight: 600;
-    line-height: 60px;
-    margin-bottom: 30px;
-    text-align: center;
-
-    @media(max-width: 991px) {
-      font-size: 40px;
-      line-height: 50px;
-    }
-
-    @media(max-width: 767px) {
-      font-size: 30px;
-      line-height: 40px;
-    }
-
-    @media(max-width: 575px) {
-      font-size: 25px;
-      line-height: 35px;
-      margin-bottom: 20px;
-    }
-  }
-
-  &__item {
-    position: relative;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    height: 220px;
-    margin-bottom: 30px;
-
-    &:hover {
-      #{$root} {
-        &__flip-front {
-          transform: rotateX(-220deg) rotateY(0);
-        }
-        &__flip-back {
-          transform: rotateY(0) rotateX(0);
-        }
-      }
-    }
-  }
-
-  &__flip-front, &__flip-back {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    overflow: hidden;
-    background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    transition: all .6s ease-in-out;
-  }
-
-  &__flip-front {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotateY(0) rotateX(0);
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      background: #000;
-      opacity: .6;
-    }
-  }
-
-  &__flip-back {
-    padding: 20px 30px;
-    background: #000;
-    transform: rotateX(220deg) rotateY(0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @media(max-width: 575px) {
-      padding: 20px;
-    }
-  }
-
-  &__item-title {
-    position: relative;
-    z-index: 1;
-    color: #FFF;
-    font-size: 30px;
-    font-weight: 500;
-    @media(max-width: 991px) {
-      font-size: 25px;
-    }
-
-    @media(max-width: 767px) {
-      font-size: 20px;
-    }
-
-    @media(max-width: 575px) {
-      font-size: 18px;
-    }
-  }
-
-  &__text {
-    position: relative;
-    z-index: 1;
-    color: #FFF;
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 300;
-    text-align: center;
-    @media(max-width: 575px) {
-      font-size: 12px;
-      line-height: 16px;
-    }
-  }
-}
-
 .count {
   padding: 100px 0;
   background: #1d222d;
@@ -1791,6 +1676,49 @@ a {
     border-top: 1px solid rgba(231, 76, 60, .3);
   }
 
+}
+
+.page {
+  padding: 100px 0;
+  background: #FFF;
+
+  &__title {
+    color: #1d222d;
+    font-size: 50px;
+    line-height: 65px;
+    font-weight: 600;
+    margin-bottom: 40px;
+
+    @media(max-width: 991px) {
+      font-size: 40px;
+      line-height: 50px;
+    }
+
+    @media(max-width: 767px) {
+      font-size: 35px;
+      line-height: 40px;
+    }
+
+    @media(max-width: 575px) {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__entry, &__entry p {
+    color: #545561;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__entry p {
+    margin-bottom: 15px;
+  }
+
+  &__entry ul {
+    padding-left: 20px;
+  }
 }
 
 @keyframes glowing {

@@ -1,19 +1,19 @@
 description = "Footer"
+
+[staticMenu footerNav]
+code = "footer-menu"
+
+[viewBag]
 ==
 <footer class="footer">
   <div class="footer__top">
     <div class="footer__container container">
       <div class="row align-items-center">
         <div class="col-md-2">
-          <img src="https://gmc.su/images/2019/01/30/logomc.png" alt="" class="footer__logo" />
+          <img src="{{ 'assets/images/logo.png'|theme }}" alt="" class="footer__logo" />
         </div>
         <div class="col-md-10">
-          <div class="footer__nav">
-            <a href="#!" class="footer__link">Главная</a>
-            <a href="#!" class="footer__link">О нас</a>
-            <a href="#!" class="footer__link">Проекты</a>
-            <a href="#!" class="footer__link">Контакты</a>
-          </div>
+          {% partial "footer-menu" items=footerNav.menuItems %}
         </div>
       </div>
     </div>
@@ -23,24 +23,19 @@ description = "Footer"
       <div class="row">
         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
           <div class="footer__title">Адрес</div>
-          <div class="footer__content">
-            Россия Санкт-Петербург
-            Латышских Стрелков 19
-            195213
-          </div>
+          <div class="footer__content">{{this.theme.address}}</div>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
           <div class="footer__title">Контакты</div>
-          <a href="tel:+78124674994" class="footer__content footer__content_link">+7 (812) 467-49-94</a>
-          <a href="tel:+78005119884" class="footer__content footer__content_link">8 800 511-98-84</a>
-          <a href="mailto:zakaz@gmc.su" class="footer__content footer__content_link">zakaz@gmc.su</a>
+          <a href="tel:{{this.theme.phone}}" class="footer__content footer__content_link">{{this.theme.phone}}</a>
+          <a href="mailto:{{this.theme.t_email}}" class="footer__content footer__content_link">{{this.theme.t_email}}</a>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-          <div class="footer__title">ООО "ГидроМашЦентр"</div>
+          <div class="footer__title">ООО "СОЮЗ-ПАРТНЁР"</div>
           <div class="footer__content">
-            ИНН 7801377940 <br>
-            КПП 781101001 <br>
-            ОГРН 1057810186125 <br>
+            ИНН 2370007815 <br>
+            КПП 237001001 <br>
+            ОГРН 1182375001214 <br>
           </div>
           <a href="#!" download class="footer__content footer__content_link footer__content_download">Скачать реквизиты</a>
 
@@ -51,13 +46,13 @@ description = "Footer"
             Нужна помощь? <br>
             Свяжитесь с нами 24/7!
           </div>
-          <a href="mailto:info@gmc.su" class="footer__content footer__content_link footer__content_active">info@gmc.su</a>
+          <a href="mailto:{{this.theme.t_email}}" class="footer__content footer__content_link footer__content_active">{{this.theme.t_email}}</a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="footer__copyright">
-    <div class="container">© 2021 GMC.SU. Все права защищены.</div>
+    <div class="container">© 2021 ООО "СОЮЗ-ПАРТНЁР". Все права защищены.</div>
   </div>
 </footer>

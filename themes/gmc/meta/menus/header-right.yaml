@@ -1,0 +1,24 @@
+items:
+    -
+        title: 'Наши проекты'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: projects
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Контакты
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: contacts
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Шапка справа'

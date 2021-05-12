@@ -1,4 +1,11 @@
 description = "Homepage"
+
+[galleries]
+galleryName = 1
+galleryType = "slider"
+
+[services]
+serviceName = 1
 ==
 <!DOCTYPE html>
 <html>
@@ -19,11 +26,9 @@ description = "Homepage"
                   <div class="warranty__title">Решим</div>
                   <div class="warranty__info">
                     <div class="warranty__slider" data-js="warranty-carousel">
-                      <span class="warranty__typeit">Проблему</span>
-                      <span class="warranty__typeit">поломку</span>
-                      <span class="warranty__typeit">прорыв</span>
-                      <span class="warranty__typeit">протечку</span>
-                      <span class="warranty__typeit">нагрев</span>
+                      {% for problem in this.theme.intro_problems %}
+                        <span class="warranty__typeit">{{problem.title}}</span>
+                      {% endfor %}
                     </div>
                     <span class="warranty__text">с которой не справился ваш инженерный отдел</span>
                   </div>
@@ -48,54 +53,25 @@ description = "Homepage"
                 <div class="col-12">
                   <div class="why__title">Почему стоит работать с нами?</div>
                 </div>
+                {% for item in this.theme.why_list %}
+                  {% if loop.index == 1 or loop.index == 4 %}
+                    <div class="col-12 col-sm-12 col-md-4 {{ loop.index == 1 ? 'why__item-first' : ''  }} {{ loop.index == 4 ? 'why__item-last' : ''  }}">
+                  {% endif %}
+                    <div class="why__block">
+                      <div class="why__subtitle">{{ item.title }}</div>
+                      <div class="why__text">{{ item.descr }}</div>
+                    </div>
+                  {% if loop.index == 3 or loop.index == 6 %}
+                    </div>
+                  {% endif %}
 
-                <div class="col-12 col-sm-12 col-md-4">
-                  <div class="why__block">
-                    <div class="why__subtitle">Оперативно</div>
-                    <div class="why__text">
-                      Короткое время реагирования по аварийным вопросам. <br>
-                      Дежурная бригада работает для наших клиентов 24/7
-                    </div>
-                  </div>
-                  <div class="why__block">
-                    <div class="why__subtitle">Собственная производственная база</div>
-                    <div class="why__text">
-                      Участок мехобработки, изготовление РВД, сварочный цех для всех видов сварки, цех по конвейерной сборке гидросистем на технике спец назначения с программой выпуска 50 единиц в год
-                    </div>
-                  </div>
-                  <div class="why__block">
-                    <div class="why__subtitle">Работаем в любых условиях</div>
-                    <div class="why__text">
-                      Возможна автономная работа сервиса без сети, автономная дизель гидростанция, сварочные электрогенераторы, винтовые поршневые компрессоры, диагностическое оборудование
-                    </div>
-                  </div>
-                </div>
+                {% endfor %}
 
-                <div class="col-12 col-sm-12 col-md-4 align-self-end">
+                <div class="col-12 col-sm-12 col-md-4 align-self-end why__item-center">
                   <img src="{{ 'assets/images/man.png'|theme }}" alt="Сергей Лукьянов" class="why__img"/>
                   <div class="why__dir">Сергей Лукьянов - Руководитель</div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-4">
-                  <div class="why__block">
-                    <div class="why__subtitle">Опытные технические и проектные специалисты</div>
-                    <div class="why__text">
-                      Сложность выполненных проектов и постоянное повышение квалификации сотрудников позволяют работать с любым заказом
-                    </div>
-                  </div>
-                  <div class="why__block">
-                    <div class="why__subtitle">Широкие возможности по кооперации</div>
-                    <div class="why__text">
-                      На сегодня ни одно производство не может закрыть 100% потребностей своих клиентов, поэтому мы, используя европейский опыт кооперации инжиниринговых компаний и производителей, решаем технические задачи наших клиентов под ключ
-                    </div>
-                  </div>
-                  <div class="why__block">
-                    <div class="why__subtitle">Собственная логистика ВЭД</div>
-                    <div class="why__text">
-                      У нас большой опыт поставки оборудования и комплектующих из Европы и Азии, прямые контракты со многими производителями, поэтому можем предоставить для наших клиентов услуги комплексно - от поставки до монтажа по ценам производителей
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
@@ -106,350 +82,26 @@ description = "Homepage"
                 <div class="col-12">
                   <div class="sertificate__title">сертификаты соответствия</div>
                 </div>
-
+                {% for item in this.theme.sertificate_list %}
                 <div class="col-6 col-sm-6 col-md-3 col-xl-3">
                   <div class="sertificate__item">
-                    <a href="https://gmc.su/images/2020/02/26/iso__495x700.jpg" data-lightbox="sertificate" class="sertificate__item-link">
-                      <img src="{{ 'assets/images/cert-1.png'|theme }}" alt="" class="sertificate__item-pic"/>
+                    <a href="{{ item.full|media }}" data-lightbox="sertificate" class="sertificate__item-link">
+                      <img src="{{ item.preview|media }}" alt="" class="sertificate__item-pic"/>
                     </a>
                   </div>
                 </div>
-
-                <div class="col-6 col-sm-6 col-md-3 col-xl-3">
-                  <div class="sertificate__item">
-                    <a href="https://gmc.su/images/2020/02/26/iso__495x700.jpg" data-lightbox="sertificate" class="sertificate__item-link">
-                      <img src="{{ 'assets/images/cert-2.png'|theme }}" alt="" class="sertificate__item-pic"/>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-6 col-sm-6 col-md-3 col-xl-3">
-                  <div class="sertificate__item">
-                    <a href="https://gmc.su/images/2020/02/26/iso__495x700.jpg" data-lightbox="sertificate" class="sertificate__item-link">
-                      <img src="{{ 'assets/images/cert-3.png'|theme }}" alt="" class="sertificate__item-pic"/>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="col-6 col-sm-6 col-md-3 col-xl-3">
-                  <div class="sertificate__item">
-                    <a href="https://gmc.su/images/2020/02/26/iso__495x700.jpg" data-lightbox="sertificate" class="sertificate__item-link">
-                      <img src="{{ 'assets/images/cert-4.png'|theme }}" alt="" class="sertificate__item-pic"/>
-                    </a>
-                  </div>
-                </div>
-
+                {% endfor %}
               </div>
             </div>
           </section>
 
-          <section class="services serivices_left" style="background-image: url({{ 'assets/images/service-1.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__title">ремонт и изготовление</div>
-                    <div class="services__subtitle">гидроцилиндров</div>
-                  </div>
-                  <div class="services__body">
-                    <div class="services__icon-list">
-                      <div class="services__icon-item">
-                        <svg class="services__icon-ico" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M14 4.5H18C19.11 4.5 20 5.39 20 6.5V17.5C20 18.61 19.11 19.5 18 19.5H2C0.89 19.5 0 18.61 0 17.5L0.01 6.5C0.01 5.39 0.89 4.5 2 4.5H6V2.5C6 1.39 6.89 0.5 8 0.5H12C13.11 0.5 14 1.39 14 2.5V4.5ZM8 4.5H12V2.5H8V4.5Z" fill="currentColor"/>
-                        </svg>
-                        Срочный ремонт / 1-3 дня!
-                      </div>
-                      <div class="services__icon-item">
-                        <svg class="services__icon-ico" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5758 8.90959L21.6558 17.9896C22.0558 18.3896 22.0558 19.0196 21.6558 19.3996L19.3558 21.6996C18.9658 22.0896 18.3358 22.0896 17.9458 21.6996L8.83583 12.5896C6.51583 13.4596 3.80583 12.9696 1.94583 11.1096C-0.354171 8.81959 -0.564171 5.22959 1.29583 2.68959L5.12583 6.51959L6.54583 5.10959L2.70583 1.25959C5.25583 -0.60041 8.83583 -0.39041 11.1358 1.90959C13.0258 3.80959 13.5058 6.56959 12.5758 8.90959ZM9.19583 10.1296L18.6558 19.5896L19.5358 18.6996L10.0858 9.24959C10.5458 8.65959 10.8458 7.99959 10.9658 7.28959C11.2158 5.89959 10.8058 4.40959 9.72583 3.32959C8.77583 2.38959 7.52583 1.94959 6.28583 2.01959L9.37583 5.10959L5.13583 9.34959L2.04583 6.25959C1.97583 7.49959 2.41583 8.75959 3.36583 9.69959C4.40583 10.7396 5.83583 11.1496 7.19583 10.9496C7.90583 10.8496 8.58583 10.5796 9.19583 10.1296Z" fill="currentColor"/>
-                        </svg>
-                        Гарантия 6 месяцев на ремонт
-                      </div>
-                      <div class="services__icon-item">
-                        <svg class="services__icon-ico" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M22.205 0.295013L11.625 10.875L7.445 6.70501L6.035 8.11501L11.625 13.705L23.625 1.70501L22.205 0.295013ZM17.965 1.70501L16.555 0.295013L10.215 6.63501L11.625 8.04501L17.965 1.70501ZM5.965 13.705L0.375 8.11501L1.795 6.70501L7.375 12.295L5.965 13.705Z" fill="currentColor"/>
-                        </svg>
-                        Максимальный размер 5000*1500 см.
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_red">оставить заявку</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="services services_right" style="background-image: url({{ 'assets/images/service-2.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__title">ремонт и диагностика</div>
-                    <div class="services__subtitle services__subtitle_big">гидравлики</div>
-                  </div>
-
-                  <div class="services__body">
-                    <div class="services__list">
-                      <div class="services__item">Ремонт гидравлических прессов</div>
-                      <div class="services__item">Ремонт гидростанций</div>
-                      <div class="services__item">Ремонт гидравлического оборудования</div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_red">Оперативно связаться с инженером</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="services services_left" style="background-image: url({{ 'assets/images/service-3.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__title services__title_big">МОНТАЖ</div>
-                    <div class="services__subtitle services__subtitle_light">ГИДРОСИСТЕМ</div>
-                  </div>
-                  <div class="services__body">
-                    <div class="services__body">
-                      <div class="services__list">
-                        <div class="services__item">Установка гидрооборудования</div>
-                        <div class="services__item">и трубопроводов</div>
-                        <div class="services__item">Пуско-наладка</div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_blue">Консультация по монтажу</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="services services_overlay-left" style="background-image: url({{ 'assets/images/service-4.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <img src="{{ 'assets/images/cherteg.png'|theme }}" alt="" class="services__image" />
-                </div>
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__title services__title_mb-0">ПРОЕКТНЫЙ ИНЖИНИРИНГ</div>
-                    <div class="services__subtitle services__subtitle_sm">промышленной гидросистемы</div>
-                  </div>
-                  <div class="services__body">
-                    <div class="services__body">
-                      <div class="services__list">
-                        <div class="services__item">Разработка и проектирование гидросистем</div>
-                        <div class="services__item">Доработка существующих проектов</div>
-                        <div class="services__item">Индивидуальная консультация
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_green">Мне нужен проект</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="services services_left" style="background-image: url({{ 'assets/images/service-5.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__title services__title_big">СЕРВИСНОЕ</div>
-                    <div class="services__subtitle">ОБСЛУЖИВАНИЕ</div>
-                  </div>
-                  <div class="services__body">
-                    <div class="services__body">
-                      <div class="services__list">
-                        <div class="services__item">Плановое обслуживание систем гидравлики</div>
-                        <div class="services__item">Срочный выезд аварийной бригады</div>
-                        <div class="services__item">Диагностика и консультация сервисным инженером</div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_blue">Консультация по сервису</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="services services_right services_light" style="background-image: url({{ 'assets/images/service-6.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__title services__title_big">МОНТАЖ</div>
-                    <div class="services__subtitle">ТРУБОПРОВОДОв</div>
-                  </div>
-                  <div class="services__body">
-                    <div class="services__body">
-                      <div class="services__list">
-                        <div class="services__item">Монтаж гидравлических линий (высокое давление)</div>
-                        <div class="services__item">Монтаж промышленных трубопроводов (линии ХПВХ/CPVC, ПВХ, полипропилен)</div>
-                        <div class="services__item">Опрессовка – испытания</div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_blue">Консультация по сервису</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="services services_right" style="background-image: url({{ 'assets/images/service-7.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__subtitle">Модернизация</div>
-                  </div>
-                  <div class="services__body">
-                    <div class="services__body">
-                      <div class="services__list">
-                        <div class="services__item">Модернизация устаревших и выработавших ресурс гидросистем</div>
-                        <div class="services__item">Восстановление и повышение производительности оборудования</div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_red">Консультация по сервису</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="services services_left services_white" style="background-image: url({{ 'assets/images/service-8.jpg'|theme }})">
-            <div class="container services__container">
-              <div class="row services__row">
-                <div class="col-md-12 col-lg-6">
-                  <div class="services__heading">
-                    <div class="services__title services__title_big">Поставка</div>
-                    <div class="services__subtitle">комплектующих</div>
-                  </div>
-                  <div class="services__body">
-                    <div class="services__body">
-                      <div class="services__list">
-                        <div class="services__item">Поставка комплектующих по всему спектру оказываемых услуг</div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#!" class="services__btn services__btn_blue">Связь с отделом</a>
-                </div>
-                <div class="col-md-12 col-lg-6">
-                  <img src="{{ 'assets/images/komsite.png'|theme }}" alt="" class="services__image" />
-                </div>
-              </div>
-            </div>
-          </section>
+          {% component 'services' %}
 
           {% partial "contact" %}
 
-          <section class="additional">
-            <div class="container">
-              <div class="row">
-                <div class="col-12">
-                  <div class="additional__title">Дополнительные услуги</div>
-                </div>
-              </div>
-              <div class="row">
-
-                <div class="col-md-6">
-                  <div class="additional__item">
-                    <div class="additional__flip-front" style="background-image: url({{ 'assets/images/add-1.jpg'|theme }})">
-                      <div class="additional__item-title">Мех Обработка</div>
-                    </div>
-                    <div class="additional__flip-back">
-                      <div class="additional__text">
-                        Мы готовы к выполнению индивидуальных, экспериментальных задач по чертежам и эскизам заказчика, а также к мелкосерийным заказам.
-                        Более того можем помочь сформулировать техзадание для наиболее корректного формулирования конечного результата –
-                        «От идеи к воплощению!»
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="additional__item">
-                    <div class="additional__flip-front" style="background-image: url({{ 'assets/images/add-2.jpg'|theme }})">
-                      <div class="additional__item-title">Сварка Аргоном</div>
-                    </div>
-                    <div class="additional__flip-back">
-                      <div class="additional__text">
-                        Выполняем сварку труб под высокое и низкое давление, сварку любых инженерных систем, и сварку любых металлоконструкций под любой контроль качества. Сварка аргоном теплообменного и емкостного оборудования, сварка полуавтоматом, сварка всех типов швов во всех пространственных положениях. Швы ровные и красивые.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="additional__item">
-                    <div class="additional__flip-front" style="background-image: url({{ 'assets/images/add-3.jpg'|theme }})">
-                      <div class="additional__item-title">Заправка гидроаккумуляторов</div>
-                    </div>
-                    <div class="additional__flip-back">
-                      <div class="additional__text">
-                        Гидроаккумуляторы заправляем давно, есть все необходимое.
-                        Заправляем у себя на площадке и выезжаем на объект к заказчику. Нерешаемых вопросов не видим. Вышел из строя гидроаккумулятор? Оперативно поставим новый по самой выгодной цене – имеем свой склад в СПб и несколько оперативных складов от производителя в Финляндии и Москве – это означает, что крайний срок на сверхсрочную поставку – даже самого редкого гидроаккумулятора сокращён до 3-5 рабочих дней.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="additional__item">
-                    <div class="additional__flip-front" style="background-image: url({{ 'assets/images/add-4.jpg'|theme }})">
-                      <div class="additional__item-title">Токарные и фрезерные работы</div>
-                    </div>
-                    <div class="additional__flip-back">
-                      <div class="additional__text">
-                        - Весь необходимый ручной инструмент, оснастки, оправки, выколотки и т.д. включая пресс до 25тонн
-                        -Токарно-винторезный бельгийский токарный станок для точных обработок тел вращения до 125мм в диаметре
-                        -Универсальный фрезерный станок со всей необходимой оснасткой для фрезерования и расточке деталей в том числе для нарезки зубьев шестерен
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </section>
-
           {% partial "counter" %}
 
-          <div class="gallery">
-            <div class="container">
-              <div class="gallery__title">Гордимся своей командой</div>
-            </div>
-
-            <div class="gallery__slider" data-js="gallery-carousel">
-              <div class="gallery__item">
-                <a href="{{ 'assets/images/gallery-1.jpg'|theme }}" data-lightbox="gallery" class="gallery__link">
-                  <img src="{{ 'assets/images/gallery-1.jpg'|theme }}" alt="" class="gallery__img" />
-                </a>
-              </div>
-              <div class="gallery__item">
-                <a href="{{ 'assets/images/gallery-2.jpg'|theme }}" data-lightbox="gallery" class="gallery__link">
-                  <img src="{{ 'assets/images/gallery-2.jpg'|theme }}" alt="" class="gallery__img" />
-                </a>
-              </div>
-              <div class="gallery__item">
-                <a href="{{ 'assets/images/gallery-3.jpg'|theme }}" data-lightbox="gallery" class="gallery__link">
-                  <img src="{{ 'assets/images/gallery-3.jpg'|theme }}" alt="" class="gallery__img" />
-                </a>
-              </div>
-              <div class="gallery__item">
-                <a href="{{ 'assets/images/gallery-4.jpg'|theme }}" data-lightbox="gallery" class="gallery__link">
-                  <img src="{{ 'assets/images/gallery-4.jpg'|theme }}" alt="" class="gallery__img" />
-                </a>
-              </div>
-              <div class="gallery__item">
-                <a href="{{ 'assets/images/gallery-5.jpg'|theme }}" class="gallery__link">
-                  <img src="{{ 'assets/images/gallery-5.jpg'|theme }}" alt="" class="gallery__img" />
-                </a>
-              </div>
-            </div>
-
-          </div>
+          {% component 'galleries' %}
 
         {% partial "contact-bottom" %}
 

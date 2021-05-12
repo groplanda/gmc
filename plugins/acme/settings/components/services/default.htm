@@ -1,0 +1,32 @@
+{% set service = __SELF__.service %}
+
+<div id="{{__SELF__.id}}">
+  {% for item in service.services %}
+  <section id="{{ item.service_id }}" class="services {{ item.service_shadow }} {{ item.service_pos }}" style="background-image: url('{{ item.service_bg|media }}')">
+    <div class="container services__container">
+      <div class="row services__row">
+        {% if item.service_image|length > 0 %}
+        <div class="col-md-12 col-lg-6 {{ item.service_image_left ? 'order-0' : 'order-1' }}">
+          <img src="{{ item.service_image|media }}" alt="{{ item.service_title|raw }}" class="services__image" />
+        </div>
+        {% endif %}
+        <div class="col-md-12 col-lg-6 {{ item.service_image_left ? 'order-1' : 'order-0' }}">
+          <div class="services__heading">
+            <div class="services__title services__title_mb-0">{{ item.service_title|raw }}</div>
+            <div class="services__subtitle services__subtitle_sm">{{ item.service_subtitle|raw }}</div>
+          </div>
+          <div class="services__body">
+            <div class="services__list">
+              {% for el in item.service_descr %}
+              <div class="services__item">{{ el.info }}</div>
+              {% endfor %}
+            </div>
+          </div>
+          <a href="#!" class="services__btn {{ item.service_btn }}">Мне нужен проект</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+</div>
+

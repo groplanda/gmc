@@ -1,0 +1,40 @@
+description = "Static page"
+
+[staticPage]
+useContent = 1
+default = 0
+==
+<!DOCTYPE html>
+<html>
+    {% partial "meta" %}
+    <body>
+      <!-- Header -->
+      {% partial "header" %}
+
+      <!-- Content -->
+      <main class="main">
+
+        <section class="page">
+          <div class="container">
+            <h1 class="title page__title">{{ this.page.title }}</h1>
+            <div class="page__entry">
+              {% component 'staticPage' %}
+            </div>
+          </div>
+        </section>
+
+        {% partial "contact" %}
+
+        {% partial "counter" %}
+
+        {% partial "contact-bottom" %}
+
+      </main>
+      <!-- Footer -->
+      {% partial "footer" %}
+      <!-- Scripts -->
+      <script src="{{ 'assets/dist/js/app.js'|theme }}"></script>
+      {% framework extras %}
+      {% scripts %}
+    </body>
+</html>

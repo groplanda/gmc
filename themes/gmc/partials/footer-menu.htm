@@ -1,0 +1,9 @@
+description = "Footer menu"
+
+[viewBag]
+==
+<div class="footer__nav">
+  {% for item in items %}
+  <a href="{{ item.url }}" class="footer__link">{{ item.title }}</a>
+  {% endfor %}
+</div>

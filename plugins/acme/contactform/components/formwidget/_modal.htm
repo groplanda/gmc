@@ -1,0 +1,63 @@
+<form
+  class="form mt-2"
+  id="{{ __SELF__.id }}"
+  data-request="{{ __SELF__ }}::onSend"
+  data-request-validate
+  data-request-flash
+>
+  <div class="row">
+      <div class="col-12 mb-3">
+          <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Ваше имя"
+              name="user_name"
+          />
+          <span class="invalid-feedback" data-validate-for="user_name"></span>
+          <div class=""></div>
+      </div>
+      <div class="col-12 mb-3">
+          <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Ваш телефон"
+              name="user_phone"
+              data-input="phone"
+          />
+          <span class="invalid-feedback" data-validate-for="user_phone"></span>
+      </div>
+
+      <div class="col-12 col-md-12 mb-3">
+          <button
+              type="submit"
+              class="button disabled"
+              data-attach-loading
+              data-button="send"
+              disabled
+          >
+              Отправить
+          </button>
+      </div>
+      <div class="col-12 col-md-12">
+          <div class="form-group form-check">
+              <input
+                  type="checkbox"
+                  class="form-check-input mt-0"
+                  id="modal-confirm"
+                  data-checkbox="confirm"
+              />
+              <label
+                  class="form-check-label text-dark"
+                  for="modal-confirm"
+                  >Согласен на обработку
+                  персональных данных</label
+              >
+          </div>
+      </div>
+  </div>
+  {% flash %}
+  <div class="text-center mt-3 mb-3 alert alert-{{ type }}" data-interval="4">
+      {{ message }}
+  </div>
+  {% endflash %}
+</form>

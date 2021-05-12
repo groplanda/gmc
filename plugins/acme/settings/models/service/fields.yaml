@@ -1,0 +1,85 @@
+fields:
+    title:
+        label: Заголовок
+        span: full
+        type: text
+    description:
+        label: Описание
+        size: tiny
+        span: full
+        type: textarea
+    services:
+        label: Услуги
+        prompt: Добавить
+        span: full
+        type: repeater
+        form:
+            fields:
+                service_title:
+                    label: Заголовок
+                    span: auto
+                    type: text
+                service_subtitle:
+                    label: Подзаголовок
+                    span: auto
+                    type: text
+                service_bg:
+                    label: Фон
+                    mode: image
+                    imageWidth: '100'
+                    imageHeight: '100'
+                    span: auto
+                    type: mediafinder
+                service_image_left:
+                    label: 'Картинка слева?'
+                    span: auto
+                    type: switch
+                service_image:
+                    label: Картинка
+                    mode: image
+                    prompt: '100'
+                    imageWidth: '100'
+                    span: auto
+                    type: mediafinder
+                service_btn:
+                    label: 'Цвет кнопки'
+                    options:
+                        services__btn_red: Красная
+                        services__btn_blue: Голубая
+                        services__btn_green: Зеленая
+                    showSearch: true
+                    span: auto
+                    type: dropdown
+                service_id:
+                    label: 'ID блока'
+                    span: auto
+                    type: text
+                service_descr:
+                    label: 'Описание услуги'
+                    prompt: 'Add new item'
+                    style: default
+                    span: full
+                    type: repeater
+                    form:
+                        fields:
+                            info:
+                                label: 'Текст описания'
+                                span: full
+                                type: text
+                service_pos:
+                    label: 'Позиция текстового блока'
+                    options:
+                        serivices_left: Слева
+                        serivices_right: Справа
+                    showSearch: true
+                    span: auto
+                    type: dropdown
+                service_shadow:
+                    label: 'Тип затемнения'
+                    options:
+                        services_overlay-left: 'Слева темнее'
+                        services_overlay-default: 'По умолчанию'
+                        services_white: 'Слева светлый'
+                    showSearch: true
+                    span: auto
+                    type: dropdown

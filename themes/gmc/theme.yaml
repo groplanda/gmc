@@ -3,3 +3,4 @@ description: 'gmc theme'
 author: acme
 homepage: bardinteam.ru
 code: ''
+form: 'config/fields.yaml'

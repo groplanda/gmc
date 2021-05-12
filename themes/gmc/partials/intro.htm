@@ -1,34 +1,29 @@
 description = "Intro section"
 ==
-<section class="intro">
+<section class="intro" style="background-image: url({{this.theme.intro_bg|media}})">
   <div class="container intro__container">
     <div class="row">
 
       <div class="col-12 col-md-12 col-lg-6">
-        <h2 class="intro__title">ГидроМашЦентр </h2>
+        <h2 class="intro__title">{{this.theme.site_name}}</h2>
         <div class="intro__subtitle">
-          <span class="intro__subtitle-text">Ремонт и Сервис</span>
+          <span class="intro__subtitle-text">Капитальный ремонт и производство гидроцилиндров</span>
           <span class="intro__subtitle-typeit" data-js="type-intro"></span>
         </div>
         <a href="#!" class="intro__btn">Оперативно связаться с инженером</a>
-        <a href="tel:+8 800 511-98-84" class="intro__phone">8 800 511-98-84</a>
+        <a href="tel:{{this.theme.phone}}" class="intro__phone">{{this.theme.phone}}</a>
         <div class="intro__send">
           <svg class="intro__send-ico" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6.5C20 5.39 19.11 4.5 18 4.5H14V2.5C14 1.39 13.11 0.5 12 0.5H8C6.89 0.5 6 1.39 6 2.5V4.5H2C0.89 4.5 0.01 5.39 0.01 6.5L0 17.5C0 18.61 0.89 19.5 2 19.5H18C19.11 19.5 20 18.61 20 17.5V6.5ZM12 4.5V2.5H8V4.5H12ZM2 6.5V17.5H18V6.5H2Z" fill="currentColor"/>
           </svg>
-          <div class="intro__send-text">или просто отправьте заявку или ТЗ на <a href="mailto:" class="intro__send-link">info@gmc.su</a></div>
+          <div class="intro__send-text">или просто отправьте заявку или ТЗ на <a href="mailto:{{this.theme.t_email}}" class="intro__send-link">{{this.theme.t_email}}</a></div>
         </div>
       </div>
 
       <div class="col-12 col-md-12 col-lg-6">
         <div class="intro__status">Пожалуй, лучший <br>сервис гидравлики<sup>*</sup></div>
         <div class="intro__list">
-          <div class="intro__item">
-            <svg class="intro__item-ico" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM2 10C2 9.39 2.08 8.79 2.21 8.22L6.99 13V14C6.99 15.1 7.89 16 8.99 16V17.93C5.06 17.43 2 14.07 2 10ZM13.99 14C14.89 14 15.63 14.59 15.89 15.4C17.19 13.98 18 12.08 18 10C18 6.65 15.92 3.77 12.99 2.59V3C12.99 4.1 12.09 5 10.99 5H8.99V7C8.99 7.55 8.54 8 7.99 8H5.99V10H11.99C12.54 10 12.99 10.45 12.99 11V14H13.99Z" fill="currentColor"/>
-            </svg>
-            Работаем по всей России
-          </div>
+
           <div class="intro__item">
             <svg class="intro__item-ico" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M8 20H17C17.83 20 18.54 19.5 18.84 18.78L21.86 11.73C21.95 11.5 22 11.26 22 11V9C22 7.9 21.1 7 20 7H13.69L14.64 2.43L14.67 2.11C14.67 1.7 14.5 1.32 14.23 1.05L13.17 0L6.58 6.59C6.22 6.95 6 7.45 6 8V18C6 19.1 6.9 20 8 20ZM8 8L12.34 3.66L11 9H20V11L17 18H8V8ZM4 8H0V20H4V8Z" fill="currentColor"/>
@@ -67,33 +62,9 @@ description = "Intro section"
 
         <div class="col-6 col-sm-4 col-md-3 col-lg-2">
           <div class="intro__feature">
-            <a href="#hydro" class="intro__feature-link"></a>
-            <img src="{{ 'assets/images/intro-2.png'|theme }}" alt="" class="intro__feature-img">
-            <div class="intro__feature-title">Монтаж гидросистем</div>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="intro__feature">
-            <a href="#trub" class="intro__feature-link"></a>
-            <img src="{{ 'assets/images/intro-3.png'|theme }}" alt="" class="intro__feature-img">
-            <div class="intro__feature-title">монтаж трубопроводов</div>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="intro__feature">
             <a href="#service" class="intro__feature-link"></a>
             <img src="{{ 'assets/images/intro-4.png'|theme }}" alt="" class="intro__feature-img">
             <div class="intro__feature-title">Сервисное обслуживание</div>
-          </div>
-        </div>
-
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="intro__feature">
-            <a href="#modern" class="intro__feature-link"></a>
-            <img src="{{ 'assets/images/intro-5.png'|theme }}" alt="" class="intro__feature-img">
-            <div class="intro__feature-title">модернизация систем</div>
           </div>
         </div>
 

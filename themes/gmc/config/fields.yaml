@@ -1,0 +1,167 @@
+tabs:
+  defaultTab: Контакты
+  lazy:
+      - Контакты
+      - Общие
+      - Главная страница
+  paneCssClass:
+      0: first-tab
+      1: second-tab
+  icons:
+      Контакты: icon-phone
+      Общие: icon-cogs
+      Главная страница: icon-home
+  fields:
+      phone:
+        type: text
+        label: Телефон
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: Ваш номер телефона
+      t_email:
+        type: email
+        label: E-mail
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: Ваш номер email
+      address:
+        type: text
+        label: Адрес
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: Ваш адрес
+      open:
+        type: text
+        label: График работы
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: Ваш график работы
+      whatsapp:
+        type: text
+        label: WhatsApp
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: 79185458705
+      tg:
+        type: text
+        label: Телеграм
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder:
+      instagram:
+        type: text
+        label: Instagram
+        span: storm
+        cssClass: col-md-4
+        tab: Контакты
+        placeholder: https://www.instagram.com
+      map:
+        type: textarea
+        label: Код карты
+        span: storm
+        cssClass: col-md-12
+        size: small
+        tab: Контакты
+      site_name:
+        type: text
+        label: Название сайта
+        span: full
+        tab: Общие
+      intro_section:
+        label: Первый блок
+        type: section
+        tab: Главная страница
+      intro_bg:
+        label: Фоновое изображение
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        tab: Главная страница
+      intro_problems:
+        type: repeater
+        prompt: Добавить проблему
+        tab: Главная страница
+        form:
+            fields:
+                title:
+                    label: Что мы решаем
+                    type: text
+                    span: storm
+                    cssClass: col-md-12
+
+      why_section:
+        label: Почему стоит работать с нами?
+        type: section
+        tab: Главная страница
+
+      why_list:
+        label: Почему стоит работать с нами?
+        type: repeater
+        prompt: Добавить причину
+        tab: Главная страница
+        minItems: 3
+        maxItems: 6
+        form:
+          fields:
+            title:
+              label: Заголовок
+              type: text
+              span: storm
+              cssClass: col-md-12
+            descr:
+              label: Описание
+              type: textarea
+              span: storm
+              cssClass: col-md-12
+      sertificate_section:
+        label: Сертификаты
+        type: section
+        tab: Главная страница
+
+      sertificate_list:
+        label: Сертификаты
+        type: repeater
+        prompt: Добавить сертификат
+        tab: Главная страница
+        form:
+          fields:
+            preview:
+              label: Иконка
+              type: mediafinder
+              mode: image
+              imageWidth: 100
+            full:
+              label: Сертификат
+              type: mediafinder
+              mode: image
+              imageWidth: 150
+
+      count_section:
+        label: Цифры компании
+        type: section
+        tab: Главная страница
+
+      count_list:
+        label: Цифры компании
+        type: repeater
+        prompt: Добавить цифру
+        tab: Главная страница
+        maxItems: 4
+        form:
+          fields:
+            title:
+              label: Заголовок
+              type: text
+              span: storm
+              cssClass: col-md-6
+            num:
+              label: Цифра
+              type: number
+              span: storm
+              cssClass: col-md-6
