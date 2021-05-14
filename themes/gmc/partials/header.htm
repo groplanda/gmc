@@ -1,4 +1,12 @@
 description = "Header"
+
+[staticMenu navLeft]
+code = "header-left"
+
+[staticMenu navRight]
+code = "header-right"
+
+[viewBag]
 ==
 <header class="header">
   <div class="container">
@@ -45,11 +53,8 @@ description = "Header"
         </svg>
       </button>
       <div class="header__mobile-nav">
-        <a href="#!" class="header__mobile-link">Главная</a>
-        <a href="#!" class="header__mobile-link">О нас</a>
-        <a href="#!" class="header__mobile-link">Услуги</a>
-        <a href="#!" class="header__mobile-link">Наши проекты</a>
-        <a href="#!" class="header__mobile-link">Контакты</a>
+        {% partial "header-mobile" items=navLeft.menuItems %}
+        {% partial "header-mobile" items=navRight.menuItems %}
       </div>
     </div>
   </div>

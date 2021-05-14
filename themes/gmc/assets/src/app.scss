@@ -37,7 +37,7 @@ a {
 }
 
 .header {
-  background-color: #1d222d;
+  background-color: #f3f3f3;
   padding-top: 20px;
   border-bottom: 1px solid rgba(231, 76, 60, .3);
   box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
@@ -77,7 +77,7 @@ a {
   }
 
   &__contacts-ico {
-    color: #FFF;
+    color: #1d222d;
     width: 16px;
     height: 16px;
     margin-right: 5px;
@@ -90,7 +90,7 @@ a {
 
   &__contacts-link {
     display: flex;
-    color: #FFF;
+    color: #1d222d;
     font-size: 14px;
     line-height: 16px;
     text-decoration: none;
@@ -112,7 +112,7 @@ a {
   }
 
   &__mobile-ico {
-    color: #FFF;
+    color: #1d222d;
     width: 100%;
     height: 100%;
   }
@@ -143,7 +143,7 @@ a {
   }
 
   &__nav-link {
-    color: #eee;
+    color: #1d222d;
     font-size: 14px;
     line-height: 18px;
     text-decoration: none;
@@ -181,7 +181,7 @@ a {
     width: 100%;
     padding-top: 10px;
     position: fixed;
-    background-color: #1d222d;
+    background-color: #f3f3f3;
     border-bottom: 1px solid rgba(231,76,60,.3);
     box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
     z-index: 10;
@@ -257,6 +257,11 @@ a {
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &_active {
+      color: #1d222d;
+      font-weight: 600;
     }
   }
 

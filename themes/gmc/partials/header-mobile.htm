@@ -1,0 +1,7 @@
+description = "Header mobile"
+
+[viewBag]
+==
+{% for item in items %}
+    <a href="{{ item.url }}" class="header__mobile-link {{ item.isActive ? ' header__mobile-link_active' : '' }}">{{ item.title }}</a>
+{% endfor %}
