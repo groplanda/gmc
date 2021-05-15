@@ -1,9 +1,13 @@
 items:
     -
         title: Главная
+        nesting: null
         type: cms-page
+        url: null
         code: ''
         reference: home
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -12,11 +16,34 @@ items:
         title: 'О компании'
         nesting: 0
         type: static-page
+        url: null
         code: ''
         reference: about-us
+        cmsPage: null
         replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
+    -
+        title: Услуги
+        type: url
+        url: '#!'
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Ремонт и производство гидроцилиндров'
+                nesting: 0
+                type: static-page
+                code: ''
+                reference: repair
+                replace: 0
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
 name: 'Шапка слева'

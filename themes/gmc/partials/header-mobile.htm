@@ -3,5 +3,16 @@ description = "Header mobile"
 [viewBag]
 ==
 {% for item in items %}
+  <div class="header__mobile-item{{ item.items ? ' header__mobile-item_dropdown' : '' }}" {% if item.items %} data-js="mobile-dropdown" {% endif %}>
     <a href="{{ item.url }}" class="header__mobile-link {{ item.isActive ? ' header__mobile-link_active' : '' }}">{{ item.title }}</a>
+
+    {% if item.items %}
+    <div class="header__mobile-dropdown">
+      {% for subitem in item.items %}
+      <a class="header__mobile-link" href="{{ subitem.url }}">{{ subitem.title }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
 {% endfor %}

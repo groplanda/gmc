@@ -8,6 +8,22 @@ require('lightbox2/dist/js/lightbox.min.js');
 
 $(document).ready(function() {
 
+  $('[data-js="dropdown"]').on('click', function() {
+    $(this).toggleClass('header__nav-item_open')
+  })
+
+
+  $('[data-js="mobile-dropdown"]').on('click', function() {
+    $(this).toggleClass('header__mobile-item_open');
+    const dropdown = $(this).children('.header__mobile-dropdown');
+
+    if ($(this).hasClass('header__mobile-item_open')) {
+      dropdown.css({"height": "auto", "overflow": "auto"})
+    } else {
+      dropdown.css({"height": "0", "overflow": "hidden"})
+    }
+  })
+
   $(window).scroll(function() {
     const scrollTop = $(window).scrollTop();
     if ( scrollTop > 200) {
@@ -107,7 +123,7 @@ $(document).ready(function() {
   });
 
   $(function(){
-    $("a[href^='#']").click(function(){
+    $("a.scroll-to").click(function(){
       var _href = $(this).attr("href");
       $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
       return false;

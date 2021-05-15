@@ -4,9 +4,13 @@ description = "Menu item"
 ==
 <div class="header__nav-row {{ classname }}">
   {% for item in items %}
-  <div class="header__nav-item {{ item.items ? ' header__nav-item_dropdown' : '' }}">
+  <div class="header__nav-item {{ item.items ? ' header__nav-item_dropdown' : '' }}" {% if item.items %} data-js="dropdown" {% endif %}>
     <a href="{{ item.url }}" class="header__nav-link {{ item.isActive ? ' header__nav-link_active' : '' }}">{{ item.title }}</a>
-
+    {% if item.items %}
+      <svg class="header__nav-caret" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0.5L5 5.5L10 0.5H0Z" fill="currentColor"/>
+      </svg>
+    {% endif %}
     {% if item.items %}
     <div class="header__nav-dropdown">
       {% for subitem in item.items %}
