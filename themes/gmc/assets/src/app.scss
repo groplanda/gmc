@@ -359,6 +359,12 @@ a {
       &__mobile-link {
         font-size: 14px;
         line-height: 21px;
+        display: block;
+        margin-bottom: 5px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }
