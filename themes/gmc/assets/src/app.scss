@@ -1720,7 +1720,7 @@ a {
 
 .footer {
   padding: 50px 0 0;
-  background: #0b0c1e;
+  background: #f3f3f3;
 
   &__top {
     padding-bottom: 30px;
@@ -1749,7 +1749,7 @@ a {
   &__link {
     font-size: 14px;
     font-weight: 300;
-    color: rgba(255, 255, 255, .4);
+    color: #1d222d;
     transition: color .3s ease;
     padding: 10px 20px;
     text-decoration: none;
@@ -1761,7 +1761,7 @@ a {
 
   &__title {
     margin-bottom: 15px;
-    color: rgba(255, 255, 255, 0.6);
+    color: #1d222d;
     font-size: 16px;
     line-height: 26px;
     font-weight: 600;
@@ -1778,7 +1778,7 @@ a {
 
   &__content {
     display: block;
-    color: #545561;
+    color: #1d222d;
     font-size: 15px;
     font-weight: 300;
     line-height: 23px;
@@ -1802,7 +1802,7 @@ a {
   }
 
   &__copyright {
-    color: #545561;
+    color: #1d222d;
     font-size: 14px;
     font-weight: 300;
     line-height: 23px;
