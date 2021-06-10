@@ -6,6 +6,9 @@ galleryType = "slider"
 
 [services]
 serviceName = 1
+
+[formwidget]
+formType = "first"
 ==
 <!DOCTYPE html>
 <html>
@@ -109,11 +112,46 @@ serviceName = 1
 
         <!-- Footer -->
         {% partial "footer" %}
-
+        <!-- Modal -->
+        <div class="modal-backdrop fade"></div>
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Оставить заявку</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {% component 'formwidget' %}
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Scripts -->
         <script src="{{ 'assets/dist/js/app.js'|theme }}"></script>
         {% framework extras %}
         {% scripts %}
-
+        <script>
+          (function(w, d, s, o){
+            var j = d.createElement(s); j.async = true; j.src = '//script.marquiz.ru/v2.js';j.onload = function() {
+              if (document.readyState !== 'loading') Marquiz.init(o);
+              else document.addEventListener("DOMContentLoaded", function() {
+                Marquiz.init(o);
+              });
+            };
+            d.head.insertBefore(j, d.head.firstElementChild);
+          })(window, document, 'script', {
+              host: '//quiz.marquiz.ru',
+              region: 'eu',
+              id: '609d102b4b46500040f529cf',
+              autoOpen: false,
+              autoOpenFreq: 'once',
+              openOnExit: false,
+              disableOnMobile: false
+            }
+          );
+        </script>
     </body>
 </html>

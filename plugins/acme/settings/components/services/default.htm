@@ -22,7 +22,11 @@
               {% endfor %}
             </div>
           </div>
-          <a href="#!" class="services__btn {{ item.service_btn }}">Мне нужен проект</a>
+          {% if item.service_quiz %}
+          <a href="#!" onclick="Marquiz.showModal('609d102b4b46500040f529cf')" class="services__btn {{ item.service_btn }}">Подобрать комплектующие</a>
+          {% else %}
+          <a href="#!" data-role="modal" data-modal="popup" class="services__btn {{ item.service_btn }}">Мне нужен проект</a>
+          {% endif %}
         </div>
       </div>
     </div>

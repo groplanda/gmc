@@ -7,8 +7,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Acme\Settings\Components\Services' => 'services',
-            'Acme\Settings\Components\Contents' => 'contents'
+            'Acme\Settings\Components\Services' => 'services'
         ];
     }
 

@@ -5,11 +5,30 @@ window.$ = window.jQuery = $;
 require('jquery.counterup');
 require('waypoints/lib/jquery.waypoints.min.js');
 require('lightbox2/dist/js/lightbox.min.js');
-
 $(document).ready(function() {
 
   $('[data-js="dropdown"]').on('click', function() {
     $(this).toggleClass('header__nav-item_open')
+  })
+
+  $('[data-modal="popup"]').on("click", function() {
+    $("#modal").addClass("show").css({display: "block"});
+    $(".modal-backdrop").addClass("show");
+    $(document.body).addClass("modal-open");
+  })
+
+  $('[data-dismiss="modal"]').on("click", function() {
+    $("#modal").removeClass("show").css({display: "none"});
+    $(".modal-backdrop").removeClass("show");
+    $(document.body).removeClass("modal-open");
+  })
+
+  $("#confirm").on("change", function() {
+    if ($(this).is(':checked')) {
+      $('[data-modal="confirm"]').prop('disabled', false);
+    } else {
+      $('[data-modal="confirm"]').prop('disabled', true);
+    }
   })
 
 

@@ -1,12 +1,12 @@
 <form
-  class="form__wrapper bg-white shadow p-4 rounded mb-5"
+  class="form__wrapper bg-white"
   id="{{ __SELF__.id }}"
   data-request="{{ __SELF__ }}::onSend"
   data-request-validate
   data-request-flash
 >
   <div class="row">
-      <div class="col-12 col-md-6 mb-3">
+      <div class="col-12 col-md-12 mb-3">
           <input
               type="text"
               class="form-control"
@@ -17,7 +17,7 @@
           <span class="invalid-feedback" data-validate-for="user_name"></span>
           <div class=""></div>
       </div>
-      <div class="col-12 col-md-6 mb-3">
+      <div class="col-12 col-md-12 mb-3">
           <input
               type="text"
               class="form-control"
@@ -41,6 +41,7 @@
               class="button disabled"
               data-attach-loading
               data-button="send"
+              data-modal="confirm"
               disabled
           >
               Отправить
@@ -50,7 +51,7 @@
           <div class="form-group form-check">
               <input
                   type="checkbox"
-                  class="form-check-input mt-0"
+                  class="form-check-input"
                   id="confirm"
                   data-checkbox="confirm"
               />

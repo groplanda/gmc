@@ -83,3 +83,7 @@ fields:
                     showSearch: true
                     span: auto
                     type: dropdown
+                service_quiz:
+                    label: 'Показать квиз?'
+                    span: auto
+                    type: switch
