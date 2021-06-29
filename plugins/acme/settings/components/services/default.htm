@@ -23,9 +23,9 @@
             </div>
           </div>
           {% if item.service_quiz %}
-          <a href="#!" onclick="Marquiz.showModal('609d102b4b46500040f529cf')" class="services__btn {{ item.service_btn }}">Подобрать комплектующие</a>
+          <a href="#!" onclick="Marquiz.showModal('609d102b4b46500040f529cf')" class="services__btn {{ item.service_btn }}">{{ item.service_textbtn }}</a>
           {% else %}
-          <a href="#!" data-role="modal" data-modal="popup" class="services__btn {{ item.service_btn }}">Мне нужен проект</a>
+          <a href="#!" data-role="modal" data-modal="popup" class="services__btn {{ item.service_btn }}">{{ item.service_textbtn }}</a>
           {% endif %}
         </div>
       </div>

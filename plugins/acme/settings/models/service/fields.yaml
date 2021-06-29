@@ -50,6 +50,11 @@ fields:
                     showSearch: true
                     span: auto
                     type: dropdown
+                service_textbtn:
+                    label: 'Текст кнопки'
+                    span: auto
+                    default: 'СРОЧНО СВЯЗАТЬСЯ'
+                    type: text
                 service_id:
                     label: 'ID блока'
                     span: auto
